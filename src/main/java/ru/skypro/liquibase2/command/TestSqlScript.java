@@ -2,26 +2,27 @@ package ru.skypro.liquibase2.command;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import ru.skypro.liquibase2.repositories.CommentRepository;
-import ru.skypro.liquibase2.repositories.PostRepository;
+import ru.skypro.liquibase2.repositories.PositionRepository;
+import ru.skypro.liquibase2.repositories.EmployeeRepository;
 
 
 @Component
 public class TestSqlScript implements CommandLineRunner {
 
-    private final CommentRepository commentRepository;
-    private final PostRepository postRepository;
 
-    public TestSqlScript(CommentRepository commentRepository, PostRepository postRepository) {
-        this.commentRepository = commentRepository;
-        this.postRepository = postRepository;
+    private final PositionRepository positionRepository;
+    private final EmployeeRepository employeeRepository;
+
+    public TestSqlScript(PositionRepository positionRepository, EmployeeRepository employeeRepository) {
+        this.positionRepository = positionRepository;
+        this.employeeRepository = employeeRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        postRepository.findAll().forEach(post -> {
-            System.out.println(post.getId() + "; " + post.getName());
+        employeeRepository.findAll().forEach(employee -> {
+            System.out.println(employee.getId() + "; " + employee.getName());
         });
-
     }
+
 }

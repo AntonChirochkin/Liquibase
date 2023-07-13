@@ -1,6 +1,8 @@
 databaseChangeLog:
   - include:
-    file: liquibase/scripts/post.sql
+      file: liquibase/scripts/employee.sql
 
   - include:
-      file: liquibase/scripts/comment.sql
+      file: liquibase/scripts/position.sql
+
+#выполняется последовательно, т.е. если поменять поля местами будет ошибка

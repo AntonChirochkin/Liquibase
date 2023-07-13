@@ -1,4 +1,4 @@
-package ru.skypro.liquibase2.model;
+package ru.skypro.liquibase2.department;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,18 +7,18 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "post")
+@Table(name = "employee")
 @Getter
 @Setter
-public class Post {
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
     private String name;
-    private String body;
+    private String surname;
 
-    @OneToMany(mappedBy = "post")
-    private List<Comment> comments;
+    @OneToMany(mappedBy = "employee")
+    List<Position> positionList;
 }
